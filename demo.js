@@ -53,7 +53,7 @@ function init() {
 	var textureLoader = new THREE.TextureLoader();
 	textureLoader.crossOrigin = '';
 	
-	crateTexture = new textureLoader.load("3crates/crate0/crate0_diffuse.png");
+	crateTexture = new textureLoader.load("crate0_diffuse.png");
 	
 	crate= new THREE.Mesh(
 		new THREE.BoxGeometry(1,1,1),
@@ -72,7 +72,7 @@ function init() {
 	
 	var loader = new THREE.GLTFLoader();
 
-		loader.load("Models/glTF/naturePack_107.gltf", function(gltf){
+		loader.load("naturePack_107.gltf", function(gltf){
 		
 		gltf.scene.position.x += 5;
 		scene.add(gltf.scene);
