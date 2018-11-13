@@ -13,7 +13,8 @@ window.addEventListener('keyup', keyUp);
 init();
 animate();
 
-function init() {
+function init()
+	{
 
 	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 1000 );
 	//camera.position.z = 1;
@@ -72,10 +73,11 @@ function init() {
 	
 	var loader = new THREE.GLTFLoader();
 
-		loader.load("naturePack_107.gltf", function(gltf){
-		
-		gltf.scene.position.x += 5;
-		scene.add(gltf.scene);
+	loader.load("naturePack_107.gltf", function(gltf){
+	
+	gltf.scene.position.x += 5;
+	scene.add(gltf.scene);
+	});
 	
 	
 	// particles
@@ -107,7 +109,7 @@ function init() {
 	
 	document.body.appendChild( renderer.domElement );
 
-}
+	}
 
 function animate() {
 
