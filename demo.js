@@ -5,7 +5,7 @@ var player = { height:1,speed:0.1,turnSpeed:Math.PI*0.01};
 var meshFloor,ambientLight, light;
 
 var crate, crateTexture, crateNormalMap, crateBumpMap;
-
+var particleSystem;
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -102,7 +102,7 @@ function init()
 	  blending: THREE.AdditiveBlending,
 	  transparent: true	});
 	
-	var particleSystem = new THREE.ParticleSystem(particles, particleMaterial);
+	particleSystem = new THREE.ParticleSystem(particles, particleMaterial);
 	particleSystem.sortParticles = true;
 	scene.add(particleSystem);
 	
