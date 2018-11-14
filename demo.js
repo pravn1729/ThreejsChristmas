@@ -83,8 +83,13 @@ function init()
 	// particles
 	var particles = new THREE.Geometry;
 	
-	for (var p = 0; p< 100000; p++) {
+	for (var p = 0; p< 500000; p++) {
 		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
+		// create a velocity vector
+		particle.velocity = new THREE.Vector3(
+		  0,              // x
+		  -Math.random(), // y: random vel
+		  0);             // z
 		particles.vertices.push(particle);
 	}
 	
@@ -125,6 +130,36 @@ function animate() {
 	mesh.rotation.x += 0.01;
 	mesh.rotation.y += 0.02;
 	
+	  // add some rotation to the system
+  particleSystem.rotation.y += 0.01;
+
+  var pCount = particleCount;
+  while (pCount--) {
+
+    // get the particle
+    var particle =
+      particles.vertices[pCount];
+
+    // check if we need to reset
+    if (particle.position.y < -200) {
+      particle.position.y = 200;
+      particle.velocity.y = 0;
+    }
+
+    // update the velocity with
+    // a splat of randomniz
+    particle.velocity.y -= Math.random() * .1;
+
+    // and the position
+    particle.position.addSelf(
+      particle.velocity);
+  }
+
+  // flag to the particle system
+  // that we've changed its vertices.
+  particleSystem.
+    geometry.
+    __dirtyVertices = true;
 	if(keyboard[87]){ // w key
 		camera.position.x -= Math.sin(camera.rotation.y)*player.speed;
 		camera.position.z -= -Math.cos(camera.rotation.y)*player.speed;
