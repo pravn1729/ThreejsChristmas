@@ -141,8 +141,8 @@ function animate() {
       particles.vertices[pCount];
 
     // check if we need to reset
-    if (particle.position.y < -200) {
-      particle.position.y = 200;
+    if (particle.y < -200) {
+      particle.y = 200;
       particle.velocity.y = 0;
     }
 
@@ -151,7 +151,7 @@ function animate() {
     particle.velocity.y -= Math.random() * .1;
 
     // and the position
-    particle.position.addSelf(
+    particle.add(
       particle.velocity);
   }
 
