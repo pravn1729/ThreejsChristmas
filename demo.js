@@ -131,7 +131,7 @@ function animate() {
 	mesh.rotation.y += 0.02;
 	
 	  // add some rotation to the system
-  particleSystem.rotation.y += 0.01;
+  particleSystem.rotation.y += 0.001;
 
   var pCount = particleCount;
   while (pCount--) {
