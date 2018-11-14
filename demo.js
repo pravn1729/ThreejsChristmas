@@ -88,10 +88,17 @@ function init()
 		particles.vertices.push(particle);
 	}
 	
-	var particleMaterial = new THREE.ParticleBasicMaterial({ color: 0xeeeeee, size: 0.2 });
+	var particleMaterial = new THREE.ParticleBasicMaterial({ 
+	color: 0xffffff, 
+	size: 0.2,
+	map: THREE.ImageUtils.loadTexture(
+		"particle.png"
+	  ),
+	  blending: THREE.AdditiveBlending,
+	  transparent: true	});
 	
 	var particleSystem = new THREE.ParticleSystem(particles, particleMaterial);
- 
+	particleSystem.sortParticles = true;
 	scene.add(particleSystem);
 	
 	
