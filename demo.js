@@ -6,7 +6,7 @@ var meshFloor,ambientLight, light;
 
 var crate, crateTexture, crateNormalMap, crateBumpMap;
 var particleSystem;
-var particleCount = 500000;
+var particleCount = 50000;
 var particles;
 
 window.addEventListener('keydown', keyDown);
@@ -97,7 +97,7 @@ function init()
 	
 	var particleMaterial = new THREE.ParticleBasicMaterial({ 
 	color: 0xffffff, 
-	size: 0.5,
+	size: 0.08,
 	map: THREE.ImageUtils.loadTexture(
 		"particle.png"
 	  ),
@@ -131,8 +131,8 @@ function animate() {
 	mesh.rotation.y += 0.02;
 	
 	  // add some rotation to the system
-  particleSystem.rotation.y += 0.01;
-  particleSystem.rotation.x -= 0.01;
+  //particleSystem.rotation.y += 0.01;
+  //particleSystem.rotation.x -= 0.01;
 
   var pCount = particleCount;
   while (pCount--) {
@@ -149,7 +149,7 @@ function animate() {
 
     // update the velocity with
     // a splat of randomniz
-    particle.velocity.y -= Math.random() * 0.07;
+    particle.velocity.y -= Math.random() * 0.007;
 
     // and the position
     particle.add(
