@@ -148,7 +148,7 @@ function animate() {
 
     // update the velocity with
     // a splat of randomniz
-    particle.velocity.y -= Math.random() * .1;
+    particle.velocity.y -= Math.random() * 0.01;
 
     // and the position
     particle.add(
