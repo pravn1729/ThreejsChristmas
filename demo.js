@@ -97,7 +97,7 @@ function init()
 	
 	var particleMaterial = new THREE.ParticleBasicMaterial({ 
 	color: 0xffffff, 
-	size: 1,
+	size: 0.5,
 	map: THREE.ImageUtils.loadTexture(
 		"particle.png"
 	  ),
