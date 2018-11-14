@@ -6,6 +6,7 @@ var meshFloor,ambientLight, light;
 
 var crate, crateTexture, crateNormalMap, crateBumpMap;
 var particleSystem;
+var particleCount = 500000;
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -83,7 +84,7 @@ function init()
 	// particles
 	var particles = new THREE.Geometry;
 	
-	for (var p = 0; p< 50000; p++) {
+	for (var p = 0; p< particleCount; p++) {
 		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
 		// create a velocity vector
 		particle.velocity = new THREE.Vector3(
@@ -160,6 +161,7 @@ function animate() {
   particleSystem.
     geometry.
     __dirtyVertices = true;
+	
 	if(keyboard[87]){ // w key
 		camera.position.x -= Math.sin(camera.rotation.y)*player.speed;
 		camera.position.z -= -Math.cos(camera.rotation.y)*player.speed;
