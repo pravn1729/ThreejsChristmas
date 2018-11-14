@@ -83,7 +83,7 @@ function init()
 	// particles
 	var particles = new THREE.Geometry;
 	
-	for (var p = 0; p< 500000; p++) {
+	for (var p = 0; p< 50000; p++) {
 		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
 		// create a velocity vector
 		particle.velocity = new THREE.Vector3(
@@ -95,7 +95,7 @@ function init()
 	
 	var particleMaterial = new THREE.ParticleBasicMaterial({ 
 	color: 0xffffff, 
-	size: 20,
+	size: 1,
 	map: THREE.ImageUtils.loadTexture(
 		"particle.png"
 	  ),
