@@ -7,6 +7,7 @@ var meshFloor,ambientLight, light;
 var crate, crateTexture, crateNormalMap, crateBumpMap;
 var particleSystem;
 var particleCount = 500000;
+var particles;
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -82,7 +83,7 @@ function init()
 	
 	
 	// particles
-	var particles = new THREE.Geometry;
+	particles = new THREE.Geometry;
 	
 	for (var p = 0; p< particleCount; p++) {
 		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
@@ -125,8 +126,6 @@ function init()
 	}
 
 function animate() {
-
-	requestAnimationFrame( animate );
 
 	mesh.rotation.x += 0.01;
 	mesh.rotation.y += 0.02;
@@ -192,6 +191,8 @@ function animate() {
 	}
 
 	renderer.render( scene, camera );
+	
+	requestAnimationFrame( animate );
 
 }
 
