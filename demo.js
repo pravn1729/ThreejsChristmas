@@ -131,7 +131,7 @@ function animate() {
 	mesh.rotation.y += 0.02;
 	
 	  // add some rotation to the system
-  particleSystem.rotation.y += 0.001;
+  particleSystem.rotation.y += 0.01;
 
   var pCount = particleCount;
   while (pCount--) {
@@ -148,7 +148,7 @@ function animate() {
 
     // update the velocity with
     // a splat of randomniz
-    particle.velocity.y -= Math.random() * 0.01;
+    particle.velocity.y -= Math.random() * 0.07;
 
     // and the position
     particle.add(
