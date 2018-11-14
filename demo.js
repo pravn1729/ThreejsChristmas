@@ -86,9 +86,7 @@ function init()
 	particles = new THREE.Geometry;
 	
 	for (var p = 0; p< particleCount; p++) {
-		var particle = new THREE.Vertex(
-		new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250)
-		);
+		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
 		// create a velocity vector
 		particle.velocity = new THREE.Vector3(
 		  0,              // x
