@@ -134,7 +134,7 @@ function animate() {
   //particleSystem.rotation.y += 0.01;
   //particleSystem.rotation.x -= 0.01;
 
-  var pCount = particleCount;
+  /*var pCount = particleCount;
   while (pCount--) {
 
     // get the particle
@@ -161,6 +161,7 @@ function animate() {
   particleSystem.
     geometry.
     __dirtyVertices = true;
+	*/
 	
 	if(keyboard[87]){ // w key
 		camera.position.x -= Math.sin(camera.rotation.y)*player.speed;
