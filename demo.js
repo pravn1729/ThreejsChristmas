@@ -9,6 +9,12 @@ var particleSystem;
 var particleCount = 50000;
 var particles;
 
+
+var snowparticle;
+var snowparticles;
+var snowparticleImage = new Image(); //THREE.ImageUtils.loadTexture( "http://i.imgur.com/cTALZ.png" );
+snowparticleImage.src = 'http://i.imgur.com/cTALZ.png';
+
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
 
@@ -97,7 +103,7 @@ function init()
 	
 	var particleMaterial = new THREE.ParticleBasicMaterial({ 
 	color: 0xffffff, 
-	size: 0.08,
+	size: 0.09,
 	map: THREE.ImageUtils.loadTexture(
 		"particle.png"
 	  ),
@@ -117,12 +123,27 @@ function init()
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	
 	
+	// snow particles
+	var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(snowparticleImage) } );
+	for (var i = 0; i < 500; i++) {
+
+        snowparticle = new Particle3D( material);
+        snowparticle.position.x = Math.random() * 2000 - 1000;
+        snowparticle.position.y = Math.random() * 2000 - 1000;
+        snowparticle.position.z = Math.random() * 2000 - 1000;
+        snowparticle.scale.x = snowparticle.scale.y =  1;
+        scene.add( snowparticle );
+        
+        snowparticles.push(snowparticle); 
+    }
+	
+	
 	// Shadow
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMap.type = THREE.BasicShadowMap;
 	
 	document.body.appendChild( renderer.domElement );
-
+	 setInterval(loop, 1000 / 60);
 	}
 
 function animate() {
@@ -149,7 +170,7 @@ function animate() {
 
     // update the velocity with
     // a splat of randomniz
-    particle.velocity.y -= Math.random() * 0.007;
+    //particle.velocity.y -= Math.random() * 0.007;
 
     // and the position
     particle.add(
@@ -161,6 +182,23 @@ function animate() {
   particleSystem.
     geometry.
     __dirtyVertices = true;
+	
+	
+	
+	// snow particles
+	for(var i = 0; i<snowparticles.length; i++) {
+
+        var particle = snowparticles[i]; 
+        particle.updatePhysics(); 
+
+        with(particle.position) {
+            if(y<-1000) y+=2000; 
+            if(x>1000) x-=2000; 
+            else if(x<-1000) x+=2000; 
+            if(z>1000) z-=2000; 
+            else if(z<-1000) z+=2000; 
+        }                
+    }
 	
 	if(keyboard[87]){ // w key
 		camera.position.x -= Math.sin(camera.rotation.y)*player.speed;
