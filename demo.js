@@ -5,9 +5,14 @@ var player = { height:1,speed:0.1,turnSpeed:Math.PI*0.01};
 var meshFloor,ambientLight, light;
 
 var crate, crateTexture, crateNormalMap, crateBumpMap;
-var particleSystem;
-var particleCount = 50000;
-var particles;
+//var particleSystem;
+//var particleCount = 50000;
+//var particles;
+
+var particle;
+var particles = []; 
+var particleImage = new Image(); //THREE.ImageUtils.loadTexture( "http://i.imgur.com/cTALZ.png" );
+particleImage.src = 'cTALZ.png'; 
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -83,7 +88,7 @@ function init()
 	
 	
 	// particles
-	particles = new THREE.Geometry;
+	/*particles = new THREE.Geometry;
 	
 	for (var p = 0; p< particleCount; p++) {
 		var particle = new THREE.Vector3(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 500 - 250);
@@ -107,7 +112,22 @@ function init()
 	particleSystem = new THREE.ParticleSystem(particles, particleMaterial);
 	particleSystem.sortParticles = true;
 	scene.add(particleSystem);
+	*/
 	
+	var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+        
+    for (var i = 0; i < 500; i++) {
+
+        particle = new Particle3D( material);
+        particle.position.x = Math.random() * 2000 - 1000;
+        particle.position.y = Math.random() * 2000 - 1000;
+        particle.position.z = Math.random() * 2000 - 1000;
+        particle.scale.x = particle.scale.y =  1;
+        scene.add( particle );
+        
+        particles.push(particle); 
+    }
+
 	
 	
 	camera.position.set(0,player.height,-5);
@@ -122,8 +142,36 @@ function init()
 	renderer.shadowMap.type = THREE.BasicShadowMap;
 	
 	document.body.appendChild( renderer.domElement );
+	setInterval(loop, 1000 / 60);
 
 	}
+	
+function loop() {
+
+	for(var i = 0; i<particles.length; i++) {
+
+        var particle = particles[i]; 
+        particle.updatePhysics(); 
+
+        with(particle.position) {
+            if(y<-1000) y+=2000; 
+            if(x>1000) x-=2000; 
+            else if(x<-1000) x+=2000; 
+            if(z>1000) z-=2000; 
+            else if(z<-1000) z+=2000; 
+        }                
+    }
+
+    camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+    camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+    camera.lookAt(scene.position); 
+
+    renderer.render( scene, camera );
+
+}
+
+	
+
 
 function animate() {
 
