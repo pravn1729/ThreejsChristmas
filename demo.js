@@ -15,6 +15,23 @@ window.addEventListener('keyup', keyUp);
 init();
 animate();
 
+function simulateRain(){
+	  var pCount = particleCount;
+	  while (pCount--) {
+		var particle = particles.vertices[pCount];
+		if (particle.y < -200) {
+		  particle.y = 200;
+		  particle.velocity.y = -1.2;
+		}
+
+		particle.velocity.y -= Math.random() * .02;
+
+		particle.y += particle.velocity.y;
+	  }
+
+	  particles.verticesNeedUpdate = true;
+};
+
 function init()
 	{
 
@@ -149,24 +166,7 @@ function init()
 	document.body.appendChild( renderer.domElement );
 
 	}
-	
-	
-var simulateRain = function(){
-	  var pCount = particleCount;
-	  while (pCount--) {
-		var particle = particles.vertices[pCount];
-		if (particle.y < -200) {
-		  particle.y = 200;
-		  particle.velocity.y = -1.2;
-		}
 
-		particle.velocity.y -= Math.random() * .02;
-
-		particle.y += particle.velocity.y;
-	  }
-
-	  particles.verticesNeedUpdate = true;
-	};
 
 	var step = 0;
 
