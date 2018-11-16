@@ -114,7 +114,7 @@ function init()
 	scene.add(particleSystem);
 	*/
 	
-	var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+	var material = new THREE.PointsMaterial( { map: new THREE.Texture(particleImage) } );
         
     for (var i = 0; i < 500; i++) {
 
