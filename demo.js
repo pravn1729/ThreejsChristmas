@@ -162,8 +162,8 @@ function loop() {
         }                
     }
 
-    camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-    camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+    //camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+    //camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
     camera.lookAt(scene.position); 
 
     renderer.render( scene, camera );
