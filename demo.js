@@ -109,7 +109,7 @@ function init()
 	scene.add(particleSystem);
 	*/
 	console.log("Particle cloud");
-	var particleCount = 20000;
+	var particleCount = 2000;
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 4,
@@ -248,8 +248,8 @@ function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
   
-  camera.position.y = camPosY + Math.sin((step / 400) * Math.PI * 4) * 5;
-  camera.position.x = camPosX + Math.sin((step / 400) * Math.PI * 2) * 10;
+  camera.position.y =  Math.sin((step / 400) * Math.PI * 4) * 5;
+  camera.position.x =  Math.sin((step / 400) * Math.PI * 2) * 10;
   camera.lookAt(new THREE.Vector3( 0, 45, 200 ));
   camera.rotation.z = Math.sin((step / 400) * Math.PI * 2) * Math.PI / 200;
 	
