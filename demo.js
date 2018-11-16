@@ -110,7 +110,7 @@ function init()
 	*/
 	console.log("Particle cloud");
 	var particleCount = 20000000;
-	var pMaterial = new THREE.PointCloudMaterial({
+	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 4,
 	   blending: THREE.AdditiveBlending,
