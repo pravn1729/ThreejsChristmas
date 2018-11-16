@@ -109,7 +109,7 @@ function init()
 	scene.add(particleSystem);
 	*/
 	console.log("Particle cloud");
-	var particleCount = 20000000;
+	var particleCount = 200000;
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 4,
