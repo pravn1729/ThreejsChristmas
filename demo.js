@@ -9,11 +9,6 @@ var crate, crateTexture, crateNormalMap, crateBumpMap;
 //var particleCount = 50000;
 //var particles;
 
-var particle;
-var particles = []; 
-var particleImage = new Image(); //THREE.ImageUtils.loadTexture( "http://i.imgur.com/cTALZ.png" );
-particleImage.src = 'cTALZ.png'; 
-
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
 
@@ -114,19 +109,29 @@ function init()
 	scene.add(particleSystem);
 	*/
 	
-	var material = new THREE.PointsMaterial( { map: new THREE.Texture(particleImage) } );
-        
-    for (var i = 0; i < 500; i++) {
+	var particleCount = 2000;
+	var pMaterial = new THREE.PointCloudMaterial({
+	   color: 0xFFFFFF,
+	   size: 4,
+	   blending: THREE.AdditiveBlending,
+	   depthTest: false,
+	   transparent: true
+	});
+	var particles = new THREE.Geometry;
 
-        particle = new Particle3D( material);
-        particle.position.x = Math.random() * 2000 - 1000;
-        particle.position.y = Math.random() * 2000 - 1000;
-        particle.position.z = Math.random() * 2000 - 1000;
-        particle.scale.x = particle.scale.y =  1;
-        scene.add( particle );
-        
-        particles.push(particle); 
-    }
+	for (var i = 0; i < particleCount; i++) {
+		var pX = Math.random()*1000 - 500,
+		pY = Math.random()*500 - 250,
+		pZ = Math.random()*1000 - 500,
+		particle = new THREE.Vector3(pX, pY, pZ);
+		particle.velocity = {};
+		particle.velocity.y = -1;
+		particles.vertices.push(particle);
+	}
+
+	var particleSystem = new THREE.PointCloud(particles, pMaterial);
+	particleSystem.position.y = 200;
+	scene.add(particleSystem);
 
 	
 	
@@ -146,29 +151,26 @@ function init()
 
 	}
 	
-function loop() {
+	
+var simulateRain = function(){
+	  var pCount = particleCount;
+	  while (pCount--) {
+		var particle = particles.vertices[pCount];
+		if (particle.y < -200) {
+		  particle.y = 200;
+		  particle.velocity.y = -1.2;
+		}
 
-	for(var i = 0; i<particles.length; i++) {
+		particle.velocity.y -= Math.random() * .02;
 
-        var particle = particles[i]; 
-        particle.updatePhysics(); 
+		particle.y += particle.velocity.y;
+	  }
 
-        with(particle.position) {
-            if(y<-1000) y+=2000; 
-            if(x>1000) x-=2000; 
-            else if(x<-1000) x+=2000; 
-            if(z>1000) z-=2000; 
-            else if(z<-1000) z+=2000; 
-        }                
-    }
+	  particles.verticesNeedUpdate = true;
+	};
 
-    //camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-    //camera.position.y += ( - mouseY - camera.position.y ) * 0.05; 
-    //camera.lookAt(scene.position); 
+	var step = 0;
 
-    //renderer.render( scene, camera );
-
-}
 
 	
 
@@ -178,19 +180,7 @@ function animate() {
 	mesh.rotation.x += 0.01;
 	mesh.rotation.y += 0.02;
 	
-	for(var i = 0; i<particles.length; i++) {
-
-        var particle = particles[i]; 
-        particle.updatePhysics(); 
-
-        with(particle.position) {
-            if(y<-1000) y+=2000; 
-            if(x>1000) x-=2000; 
-            else if(x<-1000) x+=2000; 
-            if(z>1000) z-=2000; 
-            else if(z<-1000) z+=2000; 
-        }                
-    }
+	
 	
 	  // add some rotation to the system
   //particleSystem.rotation.y += 0.01;
@@ -257,6 +247,11 @@ function animate() {
 	renderer.render( scene, camera );
 	
 	requestAnimationFrame( animate );
+	
+	simulateRain();
+  
+  step++;
+  step = step % 400;
 
 }
 
