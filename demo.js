@@ -9,6 +9,7 @@ var crate, crateTexture, crateNormalMap, crateBumpMap;
 //var particleCount = 50000;
 //var particles;
 var particleCount = 2000;
+var particles;
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -135,7 +136,7 @@ function init()
 	   depthTest: false,
 	   transparent: true
 	});
-	var particles = new THREE.Geometry;
+	particles = new THREE.Geometry;
 
 	for (var i = 0; i < particleCount; i++) {
 		var pX = Math.random()*1000 - 500,
