@@ -8,6 +8,7 @@ var crate, crateTexture, crateNormalMap, crateBumpMap;
 //var particleSystem;
 //var particleCount = 50000;
 //var particles;
+var particleCount = 2000;
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
@@ -126,7 +127,7 @@ function init()
 	scene.add(particleSystem);
 	*/
 	console.log("Particle cloud");
-	var particleCount = 2000;
+	
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 4,
