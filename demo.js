@@ -108,8 +108,8 @@ function init()
 	particleSystem.sortParticles = true;
 	scene.add(particleSystem);
 	*/
-	
-	var particleCount = 2000;
+	console.log("Particle cloud);
+	var particleCount = 20000000;
 	var pMaterial = new THREE.PointCloudMaterial({
 	   color: 0xFFFFFF,
 	   size: 4,
@@ -147,7 +147,6 @@ function init()
 	renderer.shadowMap.type = THREE.BasicShadowMap;
 	
 	document.body.appendChild( renderer.domElement );
-	//setInterval(loop, 1000 / 60);
 
 	}
 	
