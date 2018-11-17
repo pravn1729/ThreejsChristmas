@@ -132,7 +132,7 @@ function init()
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 3,
-	   map: THREE.TextureLoader(
+	   map: THREE.ImageUtils.loadTexture(
 		"cTALZ.png"
 	  ),
 	   blending: THREE.AdditiveBlending,
@@ -151,7 +151,7 @@ function init()
 		particles.vertices.push(particle);
 	}
 
-	var particleSystem = new THREE.Points(particles, pMaterial);
+	var particleSystem = new THREE.PointCloud(particles, pMaterial);
 	particleSystem.position.y = 200;
 	scene.add(particleSystem);
 	
