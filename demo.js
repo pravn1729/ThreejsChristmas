@@ -52,7 +52,7 @@ function init()
 	scene.add( mesh );
 	
 	meshFloor = new THREE.Mesh(
-		new THREE.PlaneGeometry(500,500,500,500),
+		new THREE.PlaneGeometry(100,100,100,100),
 		new THREE.MeshPhongMaterial({color:0xffffff, wireframe:false})
 	);
 	meshFloor.rotation.x -= Math.PI /2;
