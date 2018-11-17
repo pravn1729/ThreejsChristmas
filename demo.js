@@ -252,8 +252,8 @@ function animate() {
   
   camera.position.y =  Math.sin((step / 400) * Math.PI * 4) * 5;
   camera.position.x =  Math.sin((step / 400) * Math.PI * 2) * 10;
-  camera.lookAt(new THREE.Vector3( 0, 45, 200 ));
-  camera.rotation.z = Math.sin((step / 400) * Math.PI * 2) * Math.PI / 200;
+  //camera.lookAt(new THREE.Vector3( 0, 45, 200 ));
+  //camera.rotation.z = Math.sin((step / 400) * Math.PI * 2) * Math.PI / 200;
 	
 	simulateRain();
   
