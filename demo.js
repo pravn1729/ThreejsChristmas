@@ -132,7 +132,7 @@ function init()
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 3,
-	   map: THREE.ImageUtils.loadTexture(
+	   map: THREE.TextureLoader(
 		"cTALZ.png"
 	  ),
 	   blending: THREE.AdditiveBlending,
@@ -151,18 +151,18 @@ function init()
 		particles.vertices.push(particle);
 	}
 
-	var particleSystem = new THREE.PointCloud(particles, pMaterial);
+	var particleSystem = new THREE.Points(particles, pMaterial);
 	particleSystem.position.y = 200;
 	scene.add(particleSystem);
 	
-	var cloud = new THREE.Cloud( 0xeeeeee );
+	/*var cloud = new THREE.Cloud( 0xeeeeee );
 
 	cloud.scale.set( 3, 3, 3 );
 	cloud.position.set( 0, 1, 0 );
 	cloud.rotation.set( Math.PI * 0.25, Math.PI * 0.5, 0 );
 
 	scene.add( cloud );
-
+*/
 	
 	
 	camera.position.set(0,player.height,-5);
