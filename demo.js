@@ -52,8 +52,8 @@ function init()
 	scene.add( mesh );
 	
 	meshFloor = new THREE.Mesh(
-		new THREE.PlaneGeometry(1000,1000,1000,1000),
-		new THREE.MeshPhongMaterial({color:0x000000, wireframe:false})
+		new THREE.PlaneGeometry(500,500,500,500),
+		new THREE.MeshPhongMaterial({color:0xffffff, wireframe:false})
 	);
 	meshFloor.rotation.x -= Math.PI /2;
 	meshFloor.receiveShadow = true;
