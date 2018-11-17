@@ -131,7 +131,7 @@ function init()
 	
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
-	   size: 4,
+	   size: 3,
 	   blending: THREE.AdditiveBlending,
 	   depthTest: false,
 	   transparent: true
