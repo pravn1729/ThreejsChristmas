@@ -132,6 +132,9 @@ function init()
 	var pMaterial = new THREE.PointsMaterial({
 	   color: 0xFFFFFF,
 	   size: 3,
+	   map: THREE.ImageUtils.loadTexture(
+		"cTALZ.png"
+	  ),
 	   blending: THREE.AdditiveBlending,
 	   depthTest: false,
 	   transparent: true
