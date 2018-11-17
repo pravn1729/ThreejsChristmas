@@ -100,6 +100,23 @@ function init()
 	scene.add(gltf.scene);
 	});
 	
+	// loading manager
+
+	var loadingManager = new THREE.LoadingManager( function () {
+
+		scene.add( elf );
+
+	} );
+
+	// collada
+
+	var loader = new THREE.ColladaLoader( loadingManager );
+	loader.load( 'elf.dae', function ( collada ) {
+
+		elf = collada.scene;
+
+	} );
+	
 	
 	// particles
 	/*particles = new THREE.Geometry;
