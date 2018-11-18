@@ -93,12 +93,14 @@ function init()
 	
 	
 	var loader = new THREE.GLTFLoader();
-
-	loader.load("naturePack_107.gltf", function(gltf){
+	for(var i=100;i<207;i++){
+		loader.load("naturePack_'+i+'.gltf", function(gltf){
 	
-	gltf.scene.position.x += 5;
-	scene.add(gltf.scene);
-	});	
+			gltf.scene.position.x += 5;
+			scene.add(gltf.scene);
+			});	
+	}
+	
 	
 	// particles
 	/*particles = new THREE.Geometry;
