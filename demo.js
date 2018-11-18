@@ -96,7 +96,7 @@ function init()
 	for(var i=100;i<176;i++){
 		loader.load("Models/glTF/naturePack_"+i+".gltf", function(gltf){
 	
-			gltf.scene.position.x += 5;
+			gltf.scene.position.x += i%100+5;
 			scene.add(gltf.scene);
 			});	
 	}
