@@ -94,7 +94,7 @@ function init()
 	
 	var loader = new THREE.GLTFLoader();
 	for(var i=100;i<176;i++){
-		loader.load("Models/gltf/naturePack_"+i+".gltf", function(gltf){
+		loader.load("Models/glTF/naturePack_"+i+".gltf", function(gltf){
 	
 			gltf.scene.position.x += 5;
 			scene.add(gltf.scene);
