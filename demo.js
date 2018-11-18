@@ -190,6 +190,7 @@ function init()
 
 function animate() {
 
+	requestAnimationFrame( animate );
 	mesh.rotation.x += 0.01;
 	mesh.rotation.y += 0.02;
 	
@@ -258,8 +259,6 @@ function animate() {
 	}
 
 	//renderer.render( scene, camera );
-	
-	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
   
   //camera.position.y =  Math.sin((step / 400) * Math.PI * 4) * 5;
