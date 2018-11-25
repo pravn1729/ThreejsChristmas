@@ -62,7 +62,7 @@ function init()
 	material = new THREE.MeshPhongMaterial({color:0x00ffff, wireframe:false});
 
 	mesh = new THREE.Mesh( geometry, material );
-	mesh.position.x += -5.981;
+	mesh.position.x += -0.981;
 	mesh.position.y += 11.948;
 	mesh.position.z += 0.197;
 	mesh.receiveShadow = true;
