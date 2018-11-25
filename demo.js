@@ -88,7 +88,7 @@ function init()
 	scene.add(light);
 	
 	
-	var textureLoader = new THREE.TextureLoader();
+	/*var textureLoader = new THREE.TextureLoader();
 	textureLoader.crossOrigin = '';
 	
 	crateTexture = new textureLoader.load("crate0_diffuse.png");
@@ -106,6 +106,7 @@ function init()
 	crate.position.x += 2;
 	crate.castShadow = true;
 	crate.receiveShadow = true;
+	*/
 	
 	
 	var loader = new THREE.GLTFLoader();
@@ -188,7 +189,7 @@ function init()
 */
 	
 	
-	camera.position.set(0,player.height,-5);
+	camera.position.set(0,player.height,-30);
 	camera.lookAt(new THREE.Vector3(0,player.height,0));
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
