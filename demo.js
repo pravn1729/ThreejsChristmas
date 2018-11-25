@@ -213,7 +213,7 @@ function init()
 */
 	
 	
-	camera.position.set(5,player.height,-20);
+	camera.position.set(10,player.height,-20);
 	camera.lookAt(new THREE.Vector3(0,player.height,0));
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
