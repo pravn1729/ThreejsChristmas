@@ -95,6 +95,22 @@ function init()
 	
 	scene.add(light);
 	
+	light = new THREE.PointLight(0xffffff, 0.8, 18);
+	light.position.set(-3,10,3);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 25;
+	
+	scene.add(light);
+	
+	light = new THREE.PointLight(0xffffff, 0.8, 18);
+	light.position.set(3,10,-3);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 25;
+	
+	scene.add(light);
+	
 	
 	/*var textureLoader = new THREE.TextureLoader();
 	textureLoader.crossOrigin = '';
