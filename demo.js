@@ -87,6 +87,14 @@ function init()
 	ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 	scene.add(ambientLight);
 	
+	light = new THREE.PointLight(0xffffff, 0.3, 18);
+	light.position.set(-0.981,11.948,0.197);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 25;
+	
+	scene.add(light);
+	
 	light = new THREE.PointLight(0xffffff, 0.8, 18);
 	light.position.set(0,500,0);
 	light.castShadow = true;
