@@ -58,8 +58,15 @@ function init()
 
 	scene = new THREE.Scene();
 
+	var textureLoader = new THREE.TextureLoader();
+
+	// Load an image file into a custom material
+	var material = new THREE.MeshLambertMaterial({
+	  map: textureLoader.load('http://pngimg.com/uploads/star/star_PNG41531.png')
+	});
+	
 	geometry = new THREE.BoxGeometry( 0.5,0.5,0.5 );
-	material = new THREE.MeshPhongMaterial({color:0x00ffff, wireframe:false});
+	//material = new THREE.MeshPhongMaterial({color:0x00ffff, wireframe:false});
 
 	mesh = new THREE.Mesh( geometry, material );
 	mesh.position.x += -0.981;
@@ -151,7 +158,7 @@ function init()
 			});	
 	}*/
 	
-	loader.load("scene2.gltf", function(gltf){
+	loader.load("scene3.gltf", function(gltf){
 	
 	gltf.scene.position.x = i%100+5;
 	gltf.castShadow = true;
