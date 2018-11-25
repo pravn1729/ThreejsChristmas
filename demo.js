@@ -149,7 +149,7 @@ function init()
 			});	
 	}*/
 	
-	loader.load("scene1.gltf", function(gltf){
+	loader.load("scene2.gltf", function(gltf){
 	
 	gltf.scene.position.x = i%100+5;
 	gltf.castShadow = true;
