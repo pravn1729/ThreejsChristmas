@@ -93,7 +93,6 @@ function init()
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 2;
-	light.target = geometry;
 	
 	scene.add(light);
 	
@@ -102,7 +101,6 @@ function init()
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 2;
-	light.target = geometry;
 	
 	scene.add(light);
 	
@@ -111,7 +109,6 @@ function init()
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 2;
-	light.target = geometry;
 	
 	scene.add(light);
 	
@@ -120,7 +117,6 @@ function init()
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 2;
-	light.target = geometry;
 	
 	scene.add(light);
 	// star light
