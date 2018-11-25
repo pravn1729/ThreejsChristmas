@@ -58,7 +58,7 @@ function init()
 
 	scene = new THREE.Scene();
 
-	geometry = new THREE.BoxGeometry( 0.5,0.5,0.5 );
+	geometry = new THREE.BoxGeometry( -5.981,11.948,0.197 );
 	material = new THREE.MeshPhongMaterial({color:0x00ffff, wireframe:false});
 
 	mesh = new THREE.Mesh( geometry, material );
