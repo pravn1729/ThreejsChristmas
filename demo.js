@@ -80,7 +80,15 @@ function init()
 	
 	
 	light = new THREE.PointLight(0xffffff, 0.8, 18);
-	light.position.set(-3,6,-3);
+	light.position.set(-3,10,-3);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 25;
+	
+	scene.add(light);
+	
+	light = new THREE.PointLight(0xffffff, 0.8, 18);
+	light.position.set(3,10,3);
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 25;
@@ -189,7 +197,7 @@ function init()
 */
 	
 	
-	camera.position.set(0,player.height,-30);
+	camera.position.set(5,player.height,-20);
 	camera.lookAt(new THREE.Vector3(0,player.height,0));
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
