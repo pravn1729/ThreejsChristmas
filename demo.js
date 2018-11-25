@@ -62,8 +62,7 @@ function init()
 
 	// Load an image file into a custom material
 	var material = new THREE.MeshLambertMaterial({
-	  map: textureLoader.load('star.png'),
-	  emissiveMap: 'glow'
+	  map: textureLoader.load('star.png')
 	});
 	
 	geometry = new THREE.BoxGeometry( 0.5,0.5,0.5 );
@@ -88,13 +87,39 @@ function init()
 	ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 	scene.add(ambientLight);
 	
-	light = new THREE.PointLight(0xffffff, 0.3, 18);
-	light.position.set(-0.981,13.948,0.197);
+	// star light
+	light = new THREE.SpotLight(0xffffff, 0.3, 18);
+	light.position.set(-2,11.948,2);
 	light.castShadow = true;
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 2;
 	
 	scene.add(light);
+	
+	light = new THREE.SpotLight(0xffffff, 0.3, 18);
+	light.position.set(2,11.948,-2);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 2;
+	
+	scene.add(light);
+	
+	light = new THREE.SpotLight(0xffffff, 0.3, 18);
+	light.position.set(-2,11.948,-2);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 2;
+	
+	scene.add(light);
+	
+	light = new THREE.SpotLight(0xffffff, 0.3, 18);
+	light.position.set(2,11.948,2);
+	light.castShadow = true;
+	light.shadow.camera.near = 0.1;
+	light.shadow.camera.far = 2;
+	
+	scene.add(light);
+	// star light
 	
 	light = new THREE.PointLight(0xffffff, 0.8, 18);
 	light.position.set(0,500,0);
