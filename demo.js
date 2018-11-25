@@ -63,7 +63,7 @@ function init()
 	// Load an image file into a custom material
 	var material = new THREE.MeshLambertMaterial({
 	  map: textureLoader.load('star.png'),
-	  emissive: 0xFF4500
+	  emissiveMap: 'glow'
 	});
 	
 	geometry = new THREE.BoxGeometry( 0.5,0.5,0.5 );
