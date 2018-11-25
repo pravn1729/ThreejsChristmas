@@ -58,11 +58,13 @@ function init()
 
 	scene = new THREE.Scene();
 
-	geometry = new THREE.BoxGeometry( -5.981,11.948,0.197 );
+	geometry = new THREE.BoxGeometry( 0.5,0.5,0.5 );
 	material = new THREE.MeshPhongMaterial({color:0x00ffff, wireframe:false});
 
 	mesh = new THREE.Mesh( geometry, material );
-	mesh.position.y += 1;
+	mesh.position.x += -5.981;
+	mesh.position.y += 11.948;
+	mesh.position.z += 0.197;
 	mesh.receiveShadow = true;
 	mesh.castShadow = true;
 	scene.add( mesh );
