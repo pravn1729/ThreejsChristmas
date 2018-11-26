@@ -61,7 +61,7 @@ function init()
 	var textureLoader = new THREE.TextureLoader();
 
 	// Load an image file into a custom material
-	var material = new THREE.MeshLambertMaterial({
+	var material = new THREE.MeshPhongMaterial({
 	  map: textureLoader.load('star.png')	  
 	});
 	
